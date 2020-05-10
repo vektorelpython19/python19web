@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+def gonderi_list(request):
+    return render(request,'Blog/gonderilist.html',{})
+
+    
