@@ -3,7 +3,7 @@ from .models import BlogGonderi
 from .forms import GonderiForm
 
 def gonderi_list(request):
-    gonderiler = BlogGonderi.objects.all()
+    gonderiler = BlogGonderi.objects.filter(yazar=request.user)
     return render(request,'Blog/gonderilist.html',{"gonderiler":gonderiler})
 
 def gonderi_detay(request,pk):
@@ -15,7 +15,7 @@ def gonderi_ekle(request):
         form = GonderiForm(request.POST)
         if form.is_valid():
             gonderi = form.save(commit=False)
-            # işlemler yapabilirsiniz
+            gonderi.yazar = request.user
             gonderi.save()
             return redirect('detaygon',pk=gonderi.pk)
     else:
@@ -28,7 +28,7 @@ def gonderi_duzenle(request,pk):
         form = GonderiForm(request.POST,instance=gonderi)
         if form.is_valid():
             gonderi = form.save(commit=False)
-            # işlemler yapabilirsiniz
+            gonderi.yazar = request.user
             gonderi.save()
             return redirect('detaygon',pk=gonderi.pk)
     else:

@@ -1,0 +1,14 @@
+{% extends '../generic.html' %}
+{% block baslik %}
+		Kullanıcı Giriş
+			{% endblock baslik %}
+
+{% block icerik %}
+
+<h1> Kullanıcı Giriş</h1>
+<form method="POST">{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Giriş Yap</button>
+{% endblock icerik %}
+{% block footer %}
+		{% endblock footer %}

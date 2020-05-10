@@ -19,8 +19,15 @@
 			<nav id="menu">
 				<ul class="links">
 					<li><a href="index.html">Ana Sayfa</a></li>
-					<li><a href="{% url 'listgonderi' %}">Blog</a></li>
-					<li><a href="elements.html">Elements</a></li>
+					{% if user.is_authenticated %}
+					    <li><a href="{% url 'listgonderi' %}">Blog</a></li>
+						<li><span style="color:#fff">Merhaba {{user.username}}</span>
+						<a href="{% url 'logout'%}">Çıkış</a>
+						</li>
+					{% else %}
+						<li><a href="{% url 'login' %}">Giriş Yap</a></li>
+						<li><a href="{% url 'signup' %}">Kayıt Ol</a></li>
+					{% endif %}
 				</ul>
 			</nav>
 
