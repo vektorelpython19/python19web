@@ -1,15 +1,14 @@
 {% extends '../generic.html' %}
 {% block baslik %}
-		Gönderi Listesi
+		Gönderi Detay
 			{% endblock baslik %}
 
 {% block icerik %}
-<a href="{% url 'yenigon' %}">Yeni Gönderi</a>
-{% for gonderi in gonderiler %}
-    <h1><a href="{% url 'detaygon' pk=gonderi.pk %}"> {{gonderi.baslik}} </a> </h1>
+
+    <h1> {{gonderi.baslik}} </h1>
     <p> {{gonderi.yazi}} </p>
 {{ gonderi.olusturma_zamani }}
-{% endfor %}
+
 
 {% endblock icerik %}
 {% block footer %}
