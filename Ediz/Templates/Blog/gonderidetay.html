@@ -4,7 +4,7 @@
 			{% endblock baslik %}
 
 {% block icerik %}
-
+<a href="{% url 'duzenlegon' pk=gonderi.pk %}">Düzenle</a>
     <h1> {{gonderi.baslik}} </h1>
     <p> {{gonderi.yazi}} </p>
 {{ gonderi.olusturma_zamani }}
