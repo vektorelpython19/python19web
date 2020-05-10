@@ -1,1 +1,12 @@
-Merhaba buraya kadar geldik.....
+<html>
+<head>
+<title> Gonderi Listesi</title>
+</head>
+<body>
+{% for gonderi in gonderiler %}
+    <h1> {{gonderi.baslik}} </h1>
+    <p> {{gonderi.yazi}} </p>
+{{ gonderi.olusturma_zamani }}
+{% endfor %}
+</body>
+</html>

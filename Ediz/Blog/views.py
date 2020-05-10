@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .models import BlogGonderi
 
 def gonderi_list(request):
-    return render(request,'Blog/gonderilist.html',{})
+    gonderiler = BlogGonderi.objects.all()
+    return render(request,'Blog/gonderilist.html',{"gonderiler":gonderiler})
 
